@@ -1,4 +1,6 @@
 # Steren 
 A repository for a codebase to analyse planetary surfaces using artificial intelligence
 
-![Steren Logo](steren.png)
+<p align="center">
+  <img src="steren.png" alt="Steren Logo" width="30%">
+</p>
