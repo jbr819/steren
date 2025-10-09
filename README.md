@@ -16,4 +16,4 @@ Since satellite the images are very large and continous, most object detections 
 
 ### Model Performance Measurement
 Often the model performance measurements are availible during training however in the case of repurposing models on new data for which there exists accurate annotations, the model performance can be quantified.
-
+The model outputs detections with a given confidence. Normally the confidence is thresholded to obtain concrete set of predictions. The model performance is not one dimensional precision the proportion of objects identified are that are and recall the proportion of annotated objects that where detected are independant dimensions of performance.
