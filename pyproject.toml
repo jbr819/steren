@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "steren"
+version = "0.0.1a0"
+description = "A computer vision package for planetary GIS data and using neural networks"
+authors = [{ name = "Jack Rich", email = "j.b.c.rich@pgr.reading.ac.uk"}]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "typer",
+    "numpy"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+steren = "steren.cli:app"
+

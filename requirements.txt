@@ -1,0 +1,4 @@
+# Python version: 3.10
+numpy 
+typer
+tqdm
