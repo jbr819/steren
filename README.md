@@ -53,3 +53,6 @@ You can quickly explore all available commands by running:
 steren 
 ```
 
+
+### Acknowledgements
+Developed during a PhD student internship at the [Natural History Museum, London](https://www.nhm.ac.uk/) through the [BBSRC Professional Internships for PhD Students (PIPS)](https://bbsrc.ukri.org/training/placements/).
