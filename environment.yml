@@ -1,4 +1,4 @@
-name: gwel 
+name: steren
 channels:
   - conda-forge
   - defaults
