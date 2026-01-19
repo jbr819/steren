@@ -1,24 +1,49 @@
-# Steren 
-An open source python package to analyse planetary surfaces using artificial intelligence.
+# Steren
+
+**Steren** is an open-source Python package for analyzing planetary surfaces using artificial intelligence.  
+It helps researchers and developers efficiently **search, download, slice, and detect features in planetary imagery.**
 
 <p align="center">
   <img src="steren.png" alt="Steren Logo" width="30%">
 </p>
 
+---
 
-### Search
-Use the search feature to scan the web for new planetary data
+## ✨ Features
 
-### Download 
-The download features makes it easy to access download links to planetary data.
+### 🔎 Search
+Discover and scan the web for the latest publicly available planetary datasets.
 
-### Detect
-This feature allows the detection of instances and objects in large images on planetary surfaces.
+### ⬇️ Download
+Easily retrieve and manage high-resolution planetary surface imagery.
 
-### Slice
-Use this feature to slice up a large image of the planetary surface into manageable tiles. These tiles can then be treated as any other image dataset for model training and performance evaluation.
+### 🧠 Detect
+Apply AI-powered object detection to identify features and structures across large planetary images.
 
+### 🧩 Slice
+Divide massive planetary surface images into smaller, manageable tiles for training, testing, and evaluation of AI models.
 
+---
 
+## 🌍 Use Cases
 
+- Planetary science research  
+- Surface feature detection (craters, rocks, anomalies)  
+- Dataset preparation for machine learning  
+- Automated analysis of remote sensing imagery  
+
+---
+
+## 🛠 Installation
+
+```bash
+pip install steren
+
+## 💻 CLI
+
+Steren comes with a **straightforward command-line interface (CLI)**.  
+You can quickly explore all available commands by running:
+
+```bash
+steren -h
 
