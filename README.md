@@ -48,6 +48,6 @@ Steren comes with a **straightforward command-line interface (CLI)**.
 You can quickly explore all available commands by running:
 
 ```bash
-steren -h
+steren 
 ```
 
