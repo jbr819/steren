@@ -7,8 +7,6 @@ It helps researchers and developers efficiently **search, download, slice, and d
   <img src="steren.png" alt="Steren Logo" width="30%">
 </p>
 
----
-
 ## ✨ Features
 
 ### 🔎 Search
@@ -23,8 +21,6 @@ Apply AI-powered object detection to identify features and structures across lar
 ### 🧩 Slice
 Divide massive planetary surface images into smaller, manageable tiles for training, testing, and evaluation of AI models.
 
----
-
 ## 🌍 Use Cases
 
 - Planetary science research  
@@ -38,6 +34,7 @@ Divide massive planetary surface images into smaller, manageable tiles for train
 
 ```bash
 pip install steren
+```
 
 ## 💻 CLI
 
@@ -46,4 +43,5 @@ You can quickly explore all available commands by running:
 
 ```bash
 steren -h
+```
 
