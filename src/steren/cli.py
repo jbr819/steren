@@ -115,7 +115,7 @@ def detect(
     output_file: str=typer.Argument(help="Output file path [Supported types: Geopackage (.gpkg), Shapefile (.shp), Tabular (.csv)]"),
     tile_size: int= typer.Option(512,'-ts','--tile_size', help="Tile size"),
     overlap: int= typer.Option(100,'-o','--overlap', help="Overlap size"),
-    conf_thresh: float=typer.Option(0.5,'-c','--confidence',help="Minimum confidence threshold of detections."),
+    conf_thresh: float=typer.Option(0.25,'-c','--confidence',help="Minimum confidence threshold of detections."),
     iou_thresh: float=typer.Option(0.45, '-iou','--intersection_over_union', help="Threshold for the maximum intersection over union between detections.")):
     """
     Detect instances within planetary data with a pre-trained model.

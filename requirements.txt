@@ -2,3 +2,16 @@
 numpy 
 typer
 tqdm
+pyaml
+requests
+beautifulsoup4
+geopandas
+shapely
+numpy
+rasterio
+opencv-python
+torch
+torchvision
+shapely
+geopandas
+tqdm

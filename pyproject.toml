@@ -12,9 +12,18 @@ readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
     "typer",
-    "numpy"
+    "numpy",
+    "tqdm",
+    "pyaml",
+    "requests",
+    "beautifulsoup4",
+    "geopandas",
+    "shapely",
+    "rasterio",
+    "opencv-python",
+    "torch",
+    "torchvision"
 ]
-
 [tool.setuptools.packages.find]
 where = ["src"]
 

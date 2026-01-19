@@ -4,7 +4,6 @@ import math
 import os
 import numpy as np
 import cv2
-from ultralytics import YOLO
 import torch
 from torchvision.ops import batched_nms
 import rasterio
@@ -13,6 +12,13 @@ from rasterio.transform import Affine, xy
 from shapely.geometry import box as shapely_box
 import geopandas as gpd
 from tqdm import tqdm
+
+try:
+    from ultralytics import YOLO
+except ImportError:
+    sys.exit("Ultralytics not found. Install with 'pip install ultralytics'.")
+
+
 
 
 
