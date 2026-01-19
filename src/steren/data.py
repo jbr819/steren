@@ -8,7 +8,11 @@ from shapely.geometry import box
 import os
 from shapely.geometry import Point
 import math
-
+import rasterio
+from rasterio.windows import Window
+from tqdm import tqdm
+import numpy as np
+import cv2
 
 
 headers = {
@@ -253,6 +257,60 @@ class HRimage:
                 hrimage.meta()
                 print(f"{hrimage.identifier:20} {hrimage.title:60} {hrimage.date:>10}")
                 
+    def slice(self, out_dir: str, tile_size:int = 512, overlap:int = 0): 
+        """
+        Slice a georeferenced image into overlapping tiles and save as PNG.
+
+        Args:
+            out_dir (str): Directory to save tiles.
+            tile_size (int): Tile width/height in pixels.
+            overlap (int): Number of overlapping pixels between tiles.
+        """
+        os.makedirs(out_dir, exist_ok=True)
+        img_path = self.img_path
+
+        # Open image
+        with rasterio.open(img_path) as ds:
+            img_w, img_h = ds.width, ds.height
+
+            step = tile_size - overlap
+            nx = max(1, math.ceil((img_w - overlap) / step))
+            ny = max(1, math.ceil((img_h - overlap) / step))
+
+            total_tiles = nx * ny
+            print(f"[info] Image size: {img_w}x{img_h}, generating {total_tiles} tiles...")
+
+            tile_count = 0
+            for iy in tqdm(range(ny), desc="Rows"):
+                for ix in range(nx):
+                    x1 = ix * step
+                    y1 = iy * step
+                    x2 = min(x1 + tile_size, img_w)
+                    y2 = min(y1 + tile_size, img_h)
+
+                    # Adjust start if we hit right/bottom edge
+                    x1 = max(0, x2 - tile_size)
+                    y1 = max(0, y2 - tile_size)
+
+                    window = Window(x1, y1, x2 - x1, y2 - y1)
+                    arr = ds.read([1], window=window)  # read first 3 bands
+                    tile = np.transpose(arr, (1, 2, 0))  # HWC
+
+                    # Convert to uint8 if needed
+                    if tile.dtype != np.uint8:
+                        tmin, tmax = tile.min(), tile.max()
+                        if tmax > tmin:
+                            tile = ((tile - tmin) / (tmax - tmin) * 255).astype(np.uint8)
+                        else:
+                            tile = tile.astype(np.uint8)
+
+                    tile_path = os.path.join(out_dir, f"tile_{tile_count:04d}.png")
+                    cv2.imwrite(tile_path, cv2.cvtColor(tile, cv2.COLOR_RGB2BGR))
+                    tile_count += 1
+
+            print(f"[info] ✅ All {tile_count} tiles saved to {out_dir}") 
+
+
 
 
 

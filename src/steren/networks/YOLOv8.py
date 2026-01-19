@@ -4,8 +4,6 @@ import math
 import os
 import numpy as np
 import cv2
-import torch
-from torchvision.ops import batched_nms
 import rasterio
 from rasterio.windows import Window
 from rasterio.transform import Affine, xy
@@ -15,8 +13,10 @@ from tqdm import tqdm
 
 try:
     from ultralytics import YOLO
+    import torch
+    from torchvision.ops import batched_nms
 except ImportError:
-    sys.exit("Ultralytics not found. Install with 'pip install ultralytics'.")
+    sys.exit("Ultralytics not found. Install with 'pip install ultralytics torch torchvision'.")
 
 
 
@@ -100,7 +100,7 @@ class YOLOv8(Detector):
                  overlap:int,
                  conf_thresh :float,
                  iou_thresh:float,
-                 device:int = None
+                 device:str = 'cpu'
                  ):
 
         self.weights = weights
@@ -110,10 +110,14 @@ class YOLOv8(Detector):
         self.conf_thresh = conf_thresh
 
         self.model = YOLO(weights)
-        if device:
-            self.model.model.to(device)
+        self.set_device()
+
+        
     def set_device(self):
-        pass 
+          if torch.cuda.is_available():
+            device = torch.device('cuda')
+            self.model.to(device)
+ 
 
     def load_weights(self):
         pass

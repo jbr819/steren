@@ -21,8 +21,7 @@ dependencies = [
     "shapely",
     "rasterio",
     "opencv-python",
-    "torch",
-    "torchvision"
+    "lxml"
 ]
 [tool.setuptools.packages.find]
 where = ["src"]

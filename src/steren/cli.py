@@ -112,7 +112,7 @@ def detect(
     detector_type: str= typer.Argument(help="Type of detector [Supported types: YOLOv8]."),
     model_weights: str=typer.Argument(help="Path to model weights."),
     img_path: str=typer.Argument(help="Path to image data."),
-    output_file: str=typer.Argument(help="Output file path [Supported types: Geopackage (.gpkg), Shapefile (.shp), Tabular (.csv)]"),
+    output_file: str=typer.Argument(help="Output file path [Supported types: Geopackage (.gpkg)]"),
     tile_size: int= typer.Option(512,'-ts','--tile_size', help="Tile size"),
     overlap: int= typer.Option(100,'-o','--overlap', help="Overlap size"),
     conf_thresh: float=typer.Option(0.25,'-c','--confidence',help="Minimum confidence threshold of detections."),
@@ -141,13 +141,20 @@ def detect(
 @app.command()
 def slice(
     ctx: typer.Context,
-    type: str= typer.Argument(help="Type of planetary data [Supported types: HiRISE]."),
-    detector_type: str= typer.Argument(help="Type of detector [Supported types: YOLOv8]."),
+    data_type: str= typer.Argument(help="Type of planetary data [Supported types: HiRISE]."),
+    img_path: str=typer.Argument(help="Path to image data."),
+    out_dir: str=typer.Argument(help="Output directory path to write the tile images."),
+    tile_size: int = typer.Option(512, '-t','--tile_size',help="Tile size in pixels (length, assuming square tiles)"),
+    overlap: int = typer.Option(0,'-ov','--overlap',help='Tile overlap length in pixels. ')
     ):
     """
     Slice planetary data to become a regular image data set.
     """
-    pass
+    match data_type:
+        case 'HiRISE':
+            hrimage = HRimage(img_path=img_path)       
+            hrimage.slice(out_dir=out_dir, tile_size = tile_size, overlap = overlap)
+
 
 if __name__ == "__main__":
     app()
