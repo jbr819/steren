@@ -36,7 +36,7 @@ pip install steren
 
 ### From Source
 ```bash
-git clone https://github.com/yourusername/steren.git
+git clone https://github.com/jbr819/steren.git
 cd steren
 pip install -e .
 ```
