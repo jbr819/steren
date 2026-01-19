@@ -1,11 +1,17 @@
 # Steren
 
-**Steren** is an open-source Python package for analyzing planetary surfaces using artificial intelligence.  
-It helps researchers and developers efficiently **search, download, slice, and detect features in planetary imagery.**
+<div style="display: flex; align-items: center; gap: 20px;">
 
-<p align="center">
-  <img src="steren.png" alt="Steren Logo" width="30%">
-</p>
+<div style="flex: 1;">
+  <p><strong>Steren</strong> is an open-source Python package for analyzing planetary surfaces using artificial intelligence.<br>
+  It helps researchers and developers efficiently <strong>search, download, slice, and detect features in planetary imagery.</strong></p>
+</div>
+
+<div style="flex: 0;">
+  <img src="steren.png" alt="Steren Logo" width="200">
+</div>
+
+</div>
 
 ## ✨ Features
 
