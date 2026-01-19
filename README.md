@@ -29,9 +29,18 @@ Divide massive planetary surface images into smaller, manageable tiles for train
 
 ## 🛠 Installation
 
+### PyPI
 ```bash
 pip install steren
 ```
+
+### From Source
+```bash
+git clone https://github.com/yourusername/steren.git
+cd steren
+pip install -e .
+```
+
 
 ## 💻 CLI
 
