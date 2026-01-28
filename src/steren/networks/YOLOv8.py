@@ -10,6 +10,7 @@ from rasterio.transform import Affine, xy
 from shapely.geometry import box as shapely_box
 import geopandas as gpd
 from tqdm import tqdm
+import sys
 
 try:
     from ultralytics import YOLO
