@@ -36,10 +36,10 @@ pip install steren
 
 ### From Source (with Conda)
 ```bash
-conda env create -f environment.yml
-conda activate steren
 git clone https://github.com/jbr819/steren.git
 cd steren
+conda env create -f environment.yml
+conda activate steren
 pip install -e .
 ```
 
