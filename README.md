@@ -10,7 +10,7 @@
 Discover and scan the web for the latest publicly available planetary datasets.
 
 ### ⬇️ Download
-Easily retrieve and manage high-resolution planetary surface imagery.
+Easily retrieve high-resolution planetary surface imagery.
 
 ### 🧠 Detect
 Apply AI-powered object detection to identify features and structures across large planetary images.
